@@ -35,14 +35,18 @@ public class Control : MonoBehaviour
                 GameObject tile = Instantiate(mineTile, transform.GetChild(0));
                 tile.GetComponent<MineTile>().mine = true;
                 tile.GetComponent<MineTile>().index = i;
-                tile.GetComponent<MineTile>().Invoke();
+                //tile.GetComponent<MineTile>().Invoke();
             } else
             {
                 GameObject tile = Instantiate(mineTile, transform.GetChild(0));
                 tile.GetComponent<MineTile>().mine = false;
                 tile.GetComponent<MineTile>().index = i;
-                tile.GetComponent<MineTile>().Invoke();
+                //tile.GetComponent<MineTile>().Invoke();
             }
+        }
+        for(int i = 0; i < transform.GetChild(0).childCount; i++)
+        {
+            transform.GetChild(0).GetChild(i).GetComponent<MineTile>().Invoke();
         }
     }
 
